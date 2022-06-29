@@ -171,6 +171,8 @@ export const MUTATION_LOGIN_USER_2 = gql`
                 bio
                 profile_pic
                 displayName
+                is_premium
+                total_profile_views
                 type
                 reputation
                 blocked

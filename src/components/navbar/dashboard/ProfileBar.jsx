@@ -3,6 +3,7 @@ import {
     ForumRounded,
     MenuRounded,
     Notifications,
+    Search,
 } from '@mui/icons-material';
 import {
     Avatar,
@@ -10,7 +11,10 @@ import {
     Box,
     Card,
     Container,
+    Divider,
     IconButton,
+    Input,
+    InputBase,
     Paper,
     Typography,
     useMediaQuery,
@@ -97,11 +101,15 @@ export default function ProfileBar({
                                 variant="body2"
                                 noWrap
                             >
-                                NEW
+                            NEW
                             </Typography>
                         )}
                     </div>
-                    <Paper
+                    <div w="800px !important">
+                    
+                        <input  placeholder="heloooo" w="60% !important" />
+                    </div>
+                    {/* <Paper
                         // variant={theme.palette.mode == 'light' && 'outlined'}
                         elevation={0}
                         component="form"
@@ -111,7 +119,7 @@ export default function ProfileBar({
                         }}
                     >
                         <div className="flex-1 p-1 m-1"></div>
-                        {/* {!xsDown && (
+                        {!xsDown && (
                             <>
                                 <Button textCase variant="text">
                                     <Typography
@@ -144,8 +152,8 @@ export default function ProfileBar({
                             aria-label="search"
                         >
                             <Search />
-                        </IconButton> */}
-                    </Paper>
+                        </IconButton>
+                    </Paper> */}
                     <div className={classes.sectionDesktop}>
                         <IconButton
                             size="small"

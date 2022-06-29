@@ -455,7 +455,16 @@ export default function ProfileCard({
                             >
                                 Online
 
-                                <WorkspacePremiumIcon/>
+                                {profile && profile.is_premium?
+                                <WorkspacePremiumIcon/>:''}
+
+                            </Typography>
+                            <Typography variant="body2">
+                                no of views
+                                {
+                                  profile && profile.total_profile_views
+
+                                }
                             </Typography>
                             
                             
