@@ -5,16 +5,22 @@ import {
     CameraAltRounded,
     Language,
 } from '@mui/icons-material';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
+import LanguageIcon from '@mui/icons-material/Language';
 import {
     Avatar,
     Button as MUIButton,
     Card,
     CardContent,
+    InputAdornment,
     //Snackbar,
     Typography,
     useMediaQuery,
 } from '@mui/material';
-import { red } from '@mui/material/colors';
+import { green, red } from '@mui/material/colors';
+import Tooltip from '@mui/material/Tooltip';
 import { format } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,9 +34,9 @@ import {
     QUERY_FETCH_PROFILE,
 } from '../utilities/queries';
 import ProfileForm from './forms/ProfileForm';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { MUTATION_UPDATE_PROFILE } from './utilities/profile.queries';
-import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
-
+import { Box } from '@mui/system';
 export default function ProfileCard({
     profile,
     profileView,
@@ -452,22 +458,52 @@ export default function ProfileCard({
                             <Typography
                                 className="text-success"
                                 variant="body2"
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                                pb="90px"
+                                
                             >
+                                <InputAdornment>
+                                    <FiberManualRecordIcon color="success" sx={{margin:"0px 6px"}} />
+                                </InputAdornment>
                                 Online
-
-                                {profile && profile.is_premium?
-                                <WorkspacePremiumIcon/>:''}
-
+                                {profile && profile.is_premium ? ( 
+                                    <Tooltip title="Premium User" placement="top-start">
+                                    <Button sx={{borderRadius:"25px", width:"85px", height:"20px", color:"white !important" , backgroundColor:"#EA7B26", margin:"0px 4px"}} variant="text" textColor="white" >Premium</Button>
+                                  </Tooltip>
+                                    
+                                ) : (
+                                    ''
+                                )}
                             </Typography>
-                            <Typography variant="body2">
-                                no of views
-                                {
-                                  profile && profile.total_profile_views
-
-                                }
+                            <Typography
+                                variant="body2"
+                                fontWeight="bold"
+                                color="black"
+                                
+                                height="20px"
+                                
+                               
+                                mt="10px"
+                                
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                                
+                            >
+                                <InputAdornment>
+                                <Tooltip title="Total views" placement="top-start">
+                                <VisibilityIcon color="primary" sx={{margin:"0px 4px"}}/>
+                                  </Tooltip>
+                                    
+                                </InputAdornment>
+                                
+                                <Box px="6px">{profile && profile.total_profile_views}</Box>
+                                
                             </Typography>
-                            
-                            
+                           
+
                             {!profileView && !showForm && (
                                 <div>
                                     <Button

@@ -3,24 +3,21 @@ import {
     ForumRounded,
     MenuRounded,
     Notifications,
-    Search,
 } from '@mui/icons-material';
+import SearchIcon from '@mui/icons-material/Search';
 import {
     Avatar,
     Badge,
     Box,
     Card,
     Container,
-    Divider,
     IconButton,
     Input,
-    InputBase,
-    Paper,
+    InputAdornment,
     Typography,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import logo from '../../../assets/logo.svg';
@@ -101,13 +98,29 @@ export default function ProfileBar({
                                 variant="body2"
                                 noWrap
                             >
-                            NEW
+                                NEW
                             </Typography>
                         )}
                     </div>
-                    <div w="800px !important">
-                    
-                        <input  placeholder="heloooo" w="60% !important" />
+                    <div
+                        style={{
+                           
+                            width: '100%',
+                            borderRadius: '5px',
+                            marginLeft: '10px',
+                        }}
+                    >
+                        <Input
+                        
+                            fullwidth={true}
+                            sx={{ width: '100%', padding: '0px 8px', border:"1px solid blue", borderRadius:"5px" }}
+                            placeholder="search here"
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            }
+                        />
                     </div>
                     {/* <Paper
                         // variant={theme.palette.mode == 'light' && 'outlined'}
