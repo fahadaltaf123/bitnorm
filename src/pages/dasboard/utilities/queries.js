@@ -3,9 +3,9 @@ import { gql } from '@apollo/client';
 
 // Users
 export const QUERY_FETCH_PROFILE = gql`
-    query {
-        Users {
-            profile {
+    query ($id: String){
+        Users  {
+            profile(_id: $id) {
                 _id
                 displayName
                 bio

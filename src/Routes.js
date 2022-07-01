@@ -2,6 +2,7 @@ import { ApolloProvider } from '@apollo/client';
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import PeopleYouMayKnow from './pages/auth/PeopleYouMayKnow';
 
 const CoinDetails = React.lazy(() =>
     import('./pages/dasboard/bn_knowledge_center/con_details/CoinDetails')
@@ -327,6 +328,11 @@ export default function Routes({ apolloClient }) {
                                     path="/users/:id"
                                 />
                                 {/* <Route exact component={NotFound} path="*" /> */}
+                                <Route
+                                    exact
+                                    component={PeopleYouMayKnow}
+                                    path="/profile/:id"
+                                />
                             </>
                         </Suspense>
                     </Switch>

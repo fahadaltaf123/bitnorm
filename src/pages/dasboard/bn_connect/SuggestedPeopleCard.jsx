@@ -13,7 +13,7 @@ import {
     Typography,
 } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Button } from '../../../components/Button';
 //import { getFeed } from '../utilities/functions';
 import { getUserInitials } from '../../../utilities/Helpers';
@@ -194,8 +194,9 @@ function ListItemComponent({ user, getFollowStatus }) {
     }, [getFollowStatus, user]);
 
     return (
-        <ListItem>
+        <ListItem component={Link} to={user?"/profile/"+user._id:''}>
             <ListItemAvatar>
+            
                 <Avatar
                     src={
                         user?.profile_pic
